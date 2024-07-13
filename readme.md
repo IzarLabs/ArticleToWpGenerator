@@ -45,7 +45,8 @@ El proceso será el siguiente:
 
  5. En el fichero *settings.ini* dispones de las siguientes lineas:
 
-     [WP]
+```
+    [WP]
     wp_site = http://localhost:8000
     wp_user = script
     endpoint_posts_url = /wp-json/wp/v2/posts
@@ -53,15 +54,16 @@ El proceso será el siguiente:
     endpoint_tags_url = /wp-json/wp/v2/tags
     [APP]
     model = gpt-4o
+```
     
 	En la sección WP dispones de la url donde se encuentre nuestra instancia de Wordpress (corresponde con la url del fichero docker compose), asi como el nombre del usuario que creamos con el rol de Editor, su contraseña ya vimos que está contenida en el *.env* y a continuación se encuentran los endpoints de la Rest Api de Wordpress para poder escribir posts, categorías y tags.
 En la sección APP puedes añadir el modelo que desees de OpenAI, dispones de varios modelos, elegimos el *gpt-40* por ser el último y el mas creativo de todos, pero el más caro. 
 
- 6. En tu instancia de Wordpress hay que añadir algo de seguridad a la RestApi, para ello instala el siguiente plugin: https://wordpress.org/plugins/wp-rest-api-authentication/ una vez instalado y activado selecciona : **Basic authentication** y mas adelante: **username & password with Base64 encoding**
- 7. Crea un entorno virtual, por ejemplo: `python3 -m venv venv`
- 8. Instala todas las dependencias:  `pip install -r requeriments.txt`
- 9. Añade la keyword o keywords en el fichero *keywords.txt*, una por linea.
- 10. Ejecuta el script, mediante: `python3 main.py` Si no hay errores, el script ira generando mensajes por pantalla de las acciones que va realizando hasta escribir el post en la REST-Api y por ultimo guarda el articulo generado en un fichero con formato .DOCX en la carpeta DOCX. En el supuesto de que hubiera algún error o alguna excepción, el script genera un fichero **error.log** con información detallada para poder depurar y así poder solucionarlo.
+ 7. En tu instancia de Wordpress hay que añadir algo de seguridad a la RestApi, para ello instala el siguiente plugin: https://wordpress.org/plugins/wp-rest-api-authentication/ una vez instalado y activado selecciona : **Basic authentication** y mas adelante: **username & password with Base64 encoding**
+ 8. Crea un entorno virtual, por ejemplo: `python3 -m venv venv`
+ 9. Instala todas las dependencias:  `pip install -r requeriments.txt`
+ 10. Añade la keyword o keywords en el fichero *keywords.txt*, una por linea.
+ 11. Ejecuta el script, mediante: `python3 main.py` Si no hay errores, el script ira generando mensajes por pantalla de las acciones que va realizando hasta escribir el post en la REST-Api y por ultimo guarda el articulo generado en un fichero con formato .DOCX en la carpeta DOCX. En el supuesto de que hubiera algún error o alguna excepción, el script genera un fichero **error.log** con información detallada para poder depurar y así poder solucionarlo.
 
 ## Estructura de un post
 
