@@ -37,12 +37,13 @@ El proceso será el siguiente:
  2. Dentro del proyecto dispones de un fichero *docker-compose.yml* que te permite si no dispones de un Wordpress en un hosting, levantar una instancia de Wordpress y Mysql en local usando Docker, para la realización de pruebas. Para ello tienes que tener instalado en tu equipo Docker Desktop. Para descargar las imágenes y levantar ejecuta el siguiente comando dentro de la carpeta del proyecto:  `docker-compose up -d` Por defecto se levantaría en la dirección http://localhost:8000  (Puedes editar el fichero YAML y cambiar el puerto, asi como los usuarios y contraseñas del Wordpress y el de MySQL).
  3. Crea un fichero .ENV en el directorio del proyecto, dentro has de añadir dos lineas:
 
-    wp_password="password del usuario con rol de Editor" 
+    wp_password="password del usuario con rol de Editor"
+     
     OPENAI_API_KEY="Tu clave de openai"
     
 	**wp_password** representa la contraseña de un usuario que crearemos 		dentro de WP con rol de Editor. Y **OPENAI_API_KEY** la clave que necesitas de openai y que puedes generarla en https://platform.openai.com/
 
- 4. En el fichero *settings.ini* dispones de las siguientes lineas:
+ 5. En el fichero *settings.ini* dispones de las siguientes lineas:
 
      [WP]
     wp_site = http://localhost:8000
@@ -56,11 +57,11 @@ El proceso será el siguiente:
 	En la sección WP dispones de la url donde se encuentre nuestra instancia de Wordpress (corresponde con la url del fichero docker compose), asi como el nombre del usuario que creamos con el rol de Editor, su contraseña ya vimos que está contenida en el *.env* y a continuación se encuentran los endpoints de la Rest Api de Wordpress para poder escribir posts, categorías y tags.
 En la sección APP puedes añadir el modelo que desees de OpenAI, dispones de varios modelos, elegimos el *gpt-40* por ser el último y el mas creativo de todos, pero el más caro. 
 
- 5. En tu instancia de Wordpress hay que añadir algo de seguridad a la RestApi, para ello instala el siguiente plugin: https://wordpress.org/plugins/wp-rest-api-authentication/ una vez instalado y activado selecciona : **Basic authentication** y mas adelante: **username & password with Base64 encoding**
- 6. Crea un entorno virtual, por ejemplo: `python3 -m venv venv`
- 7. Instala todas las dependencias:  `pip install -r requeriments.txt`
- 8. Añade la keyword o keywords en el fichero *keywords.txt*, una por linea.
- 9. Ejecuta el script, mediante: `python3 main.py` Si no hay errores, el script ira generando mensajes por pantalla de las acciones que va realizando hasta escribir el post en la REST-Api y por ultimo guarda el articulo generado en un fichero con formato .DOCX en la carpeta DOCX. En el supuesto de que hubiera algún error o alguna excepción, el script genera un fichero **error.log** con información detallada para poder depurar y así poder solucionarlo.
+ 6. En tu instancia de Wordpress hay que añadir algo de seguridad a la RestApi, para ello instala el siguiente plugin: https://wordpress.org/plugins/wp-rest-api-authentication/ una vez instalado y activado selecciona : **Basic authentication** y mas adelante: **username & password with Base64 encoding**
+ 7. Crea un entorno virtual, por ejemplo: `python3 -m venv venv`
+ 8. Instala todas las dependencias:  `pip install -r requeriments.txt`
+ 9. Añade la keyword o keywords en el fichero *keywords.txt*, una por linea.
+ 10. Ejecuta el script, mediante: `python3 main.py` Si no hay errores, el script ira generando mensajes por pantalla de las acciones que va realizando hasta escribir el post en la REST-Api y por ultimo guarda el articulo generado en un fichero con formato .DOCX en la carpeta DOCX. En el supuesto de que hubiera algún error o alguna excepción, el script genera un fichero **error.log** con información detallada para poder depurar y así poder solucionarlo.
 
 ## Estructura de un post
 
