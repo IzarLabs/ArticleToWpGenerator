@@ -56,7 +56,7 @@ El proceso será el siguiente:
     model = gpt-4o
 ```
     
-	En la sección WP dispones de la url donde se encuentre nuestra instancia de Wordpress (corresponde con la url del fichero docker compose), asi como el nombre del usuario que creamos con el rol de Editor, su contraseña ya vimos que está contenida en el *.env* y a continuación se encuentran los endpoints de la Rest Api de Wordpress para poder escribir posts, categorías y tags.
+En la sección WP dispones de la url donde se encuentre nuestra instancia de Wordpress (corresponde con la url del fichero docker compose), asi como el nombre del usuario que creamos con el rol de Editor, su contraseña ya vimos que está contenida en el *.env* y a continuación se encuentran los endpoints de la Rest Api de Wordpress para poder escribir posts, categorías y tags.
 En la sección APP puedes añadir el modelo que desees de OpenAI, dispones de varios modelos, elegimos el *gpt-40* por ser el último y el mas creativo de todos, pero el más caro. 
 
  7. En tu instancia de Wordpress hay que añadir algo de seguridad a la RestApi, para ello instala el siguiente plugin: https://wordpress.org/plugins/wp-rest-api-authentication/ una vez instalado y activado selecciona : **Basic authentication** y mas adelante: **username & password with Base64 encoding**
