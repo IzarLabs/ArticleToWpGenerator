@@ -1,0 +1,5 @@
+configparser
+openai
+requests
+python-docx
+python-dotenv
