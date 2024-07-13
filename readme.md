@@ -37,11 +37,11 @@ El proceso será el siguiente:
  2. Dentro del proyecto dispones de un fichero *docker-compose.yml* que te permite si no dispones de un Wordpress en un hosting, levantar una instancia de Wordpress y Mysql en local usando Docker, para la realización de pruebas. Para ello tienes que tener instalado en tu equipo Docker Desktop. Para descargar las imágenes y levantar ejecuta el siguiente comando dentro de la carpeta del proyecto:  `docker-compose up -d` Por defecto se levantaría en la dirección http://localhost:8000  (Puedes editar el fichero YAML y cambiar el puerto, asi como los usuarios y contraseñas del Wordpress y el de MySQL).
  3. Crea un fichero .ENV en el directorio del proyecto, dentro has de añadir dos lineas:
 
-    wp_password="password del usuario con rol de Editor"
-     
+```
+    wp_password="password del usuario con rol de Editor"     
     OPENAI_API_KEY="Tu clave de openai"
-    
-	**wp_password** representa la contraseña de un usuario que crearemos 		dentro de WP con rol de Editor. Y **OPENAI_API_KEY** la clave que necesitas de openai y que puedes generarla en https://platform.openai.com/
+```   
+**wp_password** representa la contraseña de un usuario que crearemos 		dentro de WP con rol de Editor. Y **OPENAI_API_KEY** la clave que necesitas de openai y que puedes generarla en https://platform.openai.com/
 
  5. En el fichero *settings.ini* dispones de las siguientes lineas:
 
